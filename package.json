@@ -4,9 +4,15 @@
   "description": "A NPM package that exports functions to mask values.",
   "main": "build/index.js",
   "scripts": {
-    "test": "mocha --require babel-core/register",
+    "test": "nyc mocha --require babel-core/register",
     "build": "babel ./src -d ./lib",
     "lint": "eslint ./src"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   },
   "repository": {
     "type": "git",
@@ -30,6 +36,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0"
   }
 }
